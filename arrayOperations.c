@@ -51,7 +51,7 @@ void createArray() {
 
 void displayElements() {
     int i;
-    printf("The Array Elements are:\n");
+    printf("\nThe Array Elements are:\n");
     for (i = 0; i < n; i++) {
         printf("[%d]  ", i);
     }
