@@ -9,8 +9,7 @@ void peep();
 void display();
 void checkPalindrome();
 
-int main()
-{
+int main() {
     int choice, item;
     while(1){
 			printf("\n1.Push\n");
@@ -37,10 +36,8 @@ int main()
 				    break;
 				case 5:
 				    exit(0);
-				    break;
 				default:
 				    printf("\nInvalid choice:\n");
-				    break;
 			}
     }
     return 0;

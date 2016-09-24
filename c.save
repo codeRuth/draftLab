@@ -1,0 +1,7 @@
+gcc $1
+if[ $?
+	then 
+		echo "Check Errors"
+else 
+	./a.out
+fi
