@@ -17,15 +17,15 @@ struct NODE {
 };
 struct NODE* head;
 
-struct NODE* getNewNode(DATA *x) {
-    struct NODE* newNode = (struct NODE*)malloc(sizeof(struct NODE));
-    newNode->data = *x;
+struct NODE* getNewNode(DATA x) {
+    struct NODE* newNode = (struct NODE*) malloc(sizeof(struct NODE));
+    newNode->data = x;
     newNode->prev = NULL;
     newNode->next = NULL;
     return newNode;
 }
 
-void insertAtHead(DATA *x) {
+void insertAtHead(DATA x) {
     struct NODE* newNode = getNewNode(x);
     if(head == NULL) {
         head = newNode;
@@ -35,7 +35,8 @@ void insertAtHead(DATA *x) {
     newNode->next = head;
     head = newNode;
 }
-void insertAtTail(DATA *x) {
+
+void insertAtTail(DATA x) {
     struct NODE* temp = head;
     struct NODE* newNode = getNewNode(x);
     if(head == NULL) {
@@ -48,13 +49,14 @@ void insertAtTail(DATA *x) {
 }
 void printList() {
     struct NODE* temp = head;
+    printf("SSN\tEmployee Name\tDepartment\tDesignation\tTotal Salary\tPhone Number\n");
     while(temp != NULL) {
-        printf("%.0f ",temp->data.SSN);
-        printf("%s ",temp->data.name);
-        printf("%s ",temp->data.deptName);
-        printf("%s ",temp->data.designationName);
-        printf("%.0f ",temp->data.totalSalary);
-        printf("%.0f ",temp->data.phoneNumber);
+        printf("%.0f \t",temp->data.SSN);
+        printf("%s \t",temp->data.name);
+        printf("%s \t",temp->data.deptName);
+        printf("%s \t",temp->data.designationName);
+        printf("%.0f \t",temp->data.totalSalary);
+        printf("%.0f \t",temp->data.phoneNumber);
         printf("\n");
         temp = temp->next;
     }
@@ -63,27 +65,33 @@ void printList() {
 
 int main() {
     head = NULL;
-    while (1) {
-        DATA *sample = (DATA*) malloc(sizeof(DATA));
-        printf("Enter Employee Details :\n");
-        
-        printf("SSN :\n");scanf("%lf", sample->SSN);
-        printf("Name :\n");fgets(sample->name, sizeof(char*), stdin);
-        printf("Department Name :\n");gets(sample->deptName);
-        printf("Designation : :\n");scanf("%s", sample->designationName);
-        printf("Total Salary :\n");scanf("%lf", sample->totalSalary);
-        printf("Phone Number : \n");scanf("%lf", sample->phoneNumber);
+    DATA sample;
+    char choice;
 
+    // sample.SSN = 12323432;
+	// sample.name = "Ruthvik"; 
+	// sample.deptName = "IT";
+	// sample.designationName = "Developer";
+	// sample.totalSalary = 75000;
+	// sample.phoneNumber = 9901333964;
+
+    while(1) {
+        printf("Enter Employee Records.\n\n");
+        printf("SSN :           ");scanf("%lf", &sample.SSN);
+        printf("Employee Name : ");scanf("%s",  sample.name);
+        printf("Department :    ");scanf("%s",  sample.deptName);
+        printf("Designation :   ");scanf("%s",  sample.designationName);
+        printf("Total Salary :  ");scanf("%lf", &sample.totalSalary);
+        printf("Phone Number :  ");scanf("%lf", &sample.phoneNumber);
         insertAtTail(sample);
-        free(sample);
-        printf("Do you want to Continue (Y/N)?\n");
-
-        if(getchar() == 'Y')
+        printf("Do You want to continue ? (Y/N) :\n");scanf("%s", &choice);
+        if(choice=='Y'||choice == 'y') 
             continue;
-        else
+        else if(choice=='N'||choice == 'n')
             break;
     }
     
+    // insertAtTail(sample);
     // insertAtTail(sample);
     // insertAtHead(sample);
     // insertAtTail(sample);
