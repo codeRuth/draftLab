@@ -1,0 +1,30 @@
+ganeshs@pesit-300LAB-sys6:~$ gcc posteval.c -lm
+ganeshs@pesit-300LAB-sys6:~$ ./a.out
+enter any postfix expression:
+12+
+the value of the postfix expression is 3.000000
+ganeshs@pesit-300LAB-sys6:~$ ./a.out
+enter any postfix expression:
+32-
+the value of the postfix expression is 1.000000
+ganeshs@pesit-300LAB-sys6:~$ ./a.out
+enter any postfix expression:
+32*
+the value of the postfix expression is 6.000000
+ganeshs@pesit-300LAB-sys6:~$ ./a.out
+enter any postfix expression:
+42/
+the value of the postfix expression is 2.000000
+ganeshs@pesit-300LAB-sys6:~$ ./a.out
+enter any postfix expression:
+32^
+the value of the postfix expression is 9.000000
+ganeshs@pesit-300LAB-sys6:~$ ./a.out
+enter any postfix expression:
+10/
+the value of the postfix expression is inf
+ganeshs@pesit-300LAB-sys6:~$ ./a.out
+enter any postfix expression:
+12+3*4-5/9^2
+the value of the postfix expression is 2.000000
+
