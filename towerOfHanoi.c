@@ -17,12 +17,12 @@ main() {
 
 int hanoi(int num,char from,char to,char aux) {
     if(num==1) {
-        printf("Moving Disk from %c to %c \n",from,to);
+        printf("Moving Disk 1 from %c to %c \n",from,to);
     }
     else {
         hanoi(num-1,from,aux,to);
 
-        printf("Moving %d Disk from %c to %c \n",num,from,to);
+        printf("Moving Disk %d from %c to %c \n",num,from,to);
 
         hanoi(num-1,aux,to,from);
     }
