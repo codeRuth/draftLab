@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <math.h>
 typedef struct poly {
@@ -18,25 +17,21 @@ POLY* createnewnode()
     return(nn);
 }
 
-POLY* create()
-{
+POLY* create() {
     POLY *hn=NULL,*nn=NULL,*cn=NULL;
     int i,n;
-    printf(“\n Enter how many terms- “);
-    scanf(“%d”,&n);
-    for(i=0; i<n; i++)
-    {
+    printf("\n Enter how many terms- ");
+    scanf("%d",&n);
+    for(i=0; i<n; i++) {
         nn=createnewnode();
-        printf(“\n Enter coefficient & exponent – “);
-        scanf(“%d %d”,&nn->c,&nn->e);
+        printf("\n Enter coefficient & exponent – ");
+        scanf("%d %d",&nn->c,&nn->e);
 
-        if(hn==NULL)
-        {
+        if(hn==NULL) {
             hn=nn;
             cn=nn;
         }
-        else
-        {
+        else {
             cn->link=nn;
             cn=nn;
         }
@@ -49,13 +44,13 @@ void display(POLY *hn)
 {
     POLY *cn=NULL;
     cn=hn;
-    printf(“\n entered polynomial is – “);
+    printf("\n entered polynomial is – ");
     do
     {
-        printf(” %dx^%d “,cn->c,cn->e);
+        printf(” %dx^%d ",cn->c,cn->e);
         if(cn->link != hn)
         {
-            printf(” + “);
+            printf(” + ");
         }
         cn=cn->link;
     }
@@ -66,15 +61,15 @@ void evaluate(POLY *hn)
 {
     POLY *cn=hn;
     int x ,sum =0;
-    printf(“\n Enter value of x – “);
-    scanf(“%d”,&x);
+    printf("\n Enter value of x – ");
+    scanf("%d”,&x);
     do
     {
         sum=sum+(cn->c*pow(x,cn->e));
         cn=cn->link;
     }
     while(cn!=hn);
-    printf(“\n Evaluation is- %d”,sum);
+    printf("\n Evaluation is- %d”,sum);
 }
 
 POLY* sameexpo(int c,int e,POLY *h3)
@@ -113,11 +108,7 @@ POLY* addlastnode(POLY *nn,POLY *h3,POLY *last)
     }
     nn->link=h3;
     return(h3);
-}//end addlast
-/*———————————————————————
-Function Name- multipoly
-Function Use- for multiplication of 2 polynomial
-——————————————————————–*/
+}
 
 POLY* multipoly(POLY *h1,POLY *h2)
 {
@@ -151,11 +142,8 @@ POLY* multipoly(POLY *h1,POLY *h2)
         p=p->link;
     } while(p!=h1);
     return(h3);
-}//end multipoly
-/*———————————————————————
-Function Name – addpoly
-Function Use – for addition of 2 polynomial
-——————————————————————–*/
+}
+
 POLY *addpoly(POLY *h1, POLY *h2)
 {
     POLY *p=NULL,*q=NULL,*nn=NULL;
@@ -210,23 +198,17 @@ POLY *addpoly(POLY *h1, POLY *h2)
         q=q->link;
     }
     return(h3);
-}//end add poly
+}
 
-/*———————————————————————-
-——————————————————————–*/
-void main()
-{
+void main() {
     POLY *hn=NULL, *h1=NULL, *h2=NULL;
     int ch;
-    clrscr();
-    printf(“\n—————POLYNOMIAL OPERATION———————”);
-    do
-    {
-        printf(“\n\n 1.CREATE \n 2.DISPLAY \n 3.EVALUATE \n 4.MULTIPLY \n 5.ADD \n 6.EXIT”);
-        printf(“\n Enter choice- “);
-        scanf(“%d”,&ch);
-        switch(ch)
-        {
+    printf("\n—————POLYNOMIAL OPERATION———————");
+    do {
+        printf("\n\n 1.CREATE \n 2.DISPLAY \n 3.EVALUATE \n 4.MULTIPLY \n 5.ADD \n 6.EXIT");
+        printf("\n Enter choice- ");
+        scanf("%d",&ch);
+        switch(ch) {
         case 1:
             hn=create();
             break;
@@ -250,7 +232,7 @@ void main()
             break;
         case 6:
             exit(0);;
-        }//end switch
-    }//end do
+        }
+    }
     while(ch!=6);
-}//end main
+}
