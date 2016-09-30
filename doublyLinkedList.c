@@ -2,7 +2,7 @@
 #include <stdlib.h>
 struct data {
 	double SSN;
-	char   *name; 
+	char   *name;
 	char   *deptName;
 	char   *designationName;
 	double totalSalary;
@@ -47,16 +47,17 @@ void insertAtTail(DATA x) {
     temp->next = newNode;
     newNode->prev = temp;
 }
+
 void printList() {
     struct NODE* temp = head;
     printf("SSN\tEmployee Name\tDepartment\tDesignation\tTotal Salary\tPhone Number\n");
     while(temp != NULL) {
-        printf("%.0f \t",temp->data.SSN);
-        printf("%s \t",temp->data.name);
-        printf("%s \t",temp->data.deptName);
-        printf("%s \t",temp->data.designationName);
-        printf("%.0f \t",temp->data.totalSalary);
-        printf("%.0f \t",temp->data.phoneNumber);
+        printf("%.0f   ", temp->data.SSN);
+        printf("%s     ", &temp->data.name);
+        printf("%s     ", &temp->data.deptName);
+        printf("%s     ", &temp->data.designationName);
+        printf("%.0f   ", temp->data.totalSalary);
+        printf("%.0f   ", temp->data.phoneNumber);
         printf("\n");
         temp = temp->next;
     }
@@ -69,7 +70,7 @@ int main() {
     char choice;
 
     // sample.SSN = 12323432;
-	// sample.name = "Ruthvik"; 
+	// sample.name = "Ruthvik";
 	// sample.deptName = "IT";
 	// sample.designationName = "Developer";
 	// sample.totalSalary = 75000;
@@ -77,12 +78,12 @@ int main() {
 
     while(1) {
         printf("Enter Employee Records.\n\n");
-        printf("SSN :           ");scanf("%lf", &sample.SSN);
-        printf("Employee Name : ");scanf("%s",  sample.name);
-        printf("Department :    ");scanf("%s",  sample.deptName);
-        printf("Designation :   ");scanf("%s",  sample.designationName);
-        printf("Total Salary :  ");scanf("%lf", &sample.totalSalary);
-        printf("Phone Number :  ");scanf("%lf", &sample.phoneNumber);
+        printf("SSN : ");scanf("%lf", &sample.SSN);
+        printf("Employee Name : ");scanf("%s",  &sample.name);
+        printf("Department    : ");scanf("%s",  &sample.deptName);
+        printf("Designation   : ");scanf("%s",  &sample.designationName);
+        printf("Total Salary  : ");scanf("%lf", &sample.totalSalary);
+        printf("Phone Number  : ");scanf("%lf", &sample.phoneNumber);
         insertAtTail(sample);
         printf("Do You want to continue ? (Y/N) :\n");scanf("%s", &choice);
         if(choice=='Y'||choice == 'y') 
@@ -90,7 +91,6 @@ int main() {
         else if(choice=='N'||choice == 'n')
             break;
     }
-    
     // insertAtTail(sample);
     // insertAtTail(sample);
     // insertAtHead(sample);

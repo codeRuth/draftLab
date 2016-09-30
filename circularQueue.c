@@ -42,7 +42,7 @@ int isEmpty() {
         return 1;
     return 0;
 }
- 
+
 void display() {
     int i;
     if(isEmpty()) printf("\nEmpty Queue\n");
@@ -54,17 +54,17 @@ void display() {
         printf("<-[%d]Rear\n",r);
     }
 }
- 
+
 int main() {
     int opn,elem;
-    printf("\n- Circular Queue Operations -");
+    printf("\n  Circular Queue Operations ");
     do {
-        printf("\n1 - Insert\n2 - Delete\n3 - Display\n4 - Exit\n");
+        printf("\n1 - Insert  2 - Delete  3 - Display  4 - Exit\n");
         printf("Option : ");
         scanf("%d",&opn);
         switch(opn) {
             case 1: 
-                printf("\nEnter the Element ?");
+                printf("Enter the Element :");
                 scanf("%d",&elem);
                 insertElement(elem); 
                 break;
