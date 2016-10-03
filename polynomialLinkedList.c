@@ -68,7 +68,7 @@ void evaluate(POLY *hn) {
     printf("\n Evaluation is- %d",sum);
 }
 
-POLY* sameexpo(int c,int e,POLY *h3) {
+POLY* sameExponent(int c,int e,POLY *h3) {
     POLY *cn=NULL;
     cn=h3;
     if(h3==NULL) {
@@ -86,7 +86,7 @@ POLY* sameexpo(int c,int e,POLY *h3) {
 
 }
 
-POLY* addlastnode(POLY *nn, POLY *h3, POLY *last) {
+POLY* addLastNode(POLY *nn, POLY *h3, POLY *last) {
     if(h3==NULL)
         h3=nn;
     else
@@ -96,7 +96,7 @@ POLY* addlastnode(POLY *nn, POLY *h3, POLY *last) {
     return(h3);
 }
 
-POLY *addpoly(POLY *h1, POLY *h2) {
+POLY *addPolynomial(POLY *h1, POLY *h2) {
     POLY *p=NULL,*q=NULL,*nn=NULL;
     int c,e;
     POLY *h3=NULL;
@@ -105,7 +105,7 @@ POLY *addpoly(POLY *h1, POLY *h2) {
     q=h2;
     do {
         nn=createNewNode();
-        h3=addlastnode(nn,h3,last);
+        h3=addLastNode(nn,h3,last);
         last=nn;
         if(p->e==q->e) {
             nn->c=p->c+q->c;
@@ -128,7 +128,7 @@ POLY *addpoly(POLY *h1, POLY *h2) {
 
     while(p!=h1){   
         nn= createNewNode();
-        h3=addlastnode(nn,h3,last);
+        h3=addLastNode(nn,h3,last);
         last=nn;
         nn->c=p->c;
         nn->e=p->e;
@@ -136,7 +136,7 @@ POLY *addpoly(POLY *h1, POLY *h2) {
     }
     while(q!=h2) {
         nn=createNewNode();
-        h3=addlastnode(nn,h3,last);
+        h3=addLastNode(nn,h3,last);
         last=nn;
         nn->c=q->c;
         nn->e=q->e;
@@ -166,7 +166,7 @@ void main() {
         case 4:
             h1=create();
             h2=create();
-            hn=addpoly(h1,h2);
+            hn=addPolynomial(h1,h2);
             display(hn);
             break;
         case 5:
