@@ -8,7 +8,7 @@ typedef struct STACK {
 } STACK;
 
 int  priority(char);
-void init(STACK *);
+void initStack(STACK *);
 int  empty(STACK *);
 int  full(STACK *);
 char pop(STACK *);
@@ -19,7 +19,7 @@ void main() {
     STACK s;
     char x, str[100];
     int token, i;
-    init(&s);
+    initStack(&s);
     printf("Enter 'infix' Expression:");
     scanf("%s", str);
     for(i=0; str[i]!='\0'; i++) {
@@ -56,7 +56,7 @@ int priority(char x) {
     return(3);
 }
 
-void init(STACK *s) {
+void initStack(STACK *s) {
     s->top=-1;
 }
 
