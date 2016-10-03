@@ -52,12 +52,12 @@ void printList() {
     struct NODE* temp = head;
     printf("SSN\tEmployee Name\tDepartment\tDesignation\tTotal Salary\tPhone Number\n");
     while(temp != NULL) {
-        printf("%.0f   ", temp->data.SSN);
-        printf("%s     ", &temp->data.name);
-        printf("%s     ", &temp->data.deptName);
-        printf("%s     ", &temp->data.designationName);
-        printf("%.0f   ", temp->data.totalSalary);
-        printf("%.0f   ", temp->data.phoneNumber);
+        printf("%.0f   ", &temp->data.SSN);
+        printf("%s     ", temp->data.name);
+        printf("%s     ", temp->data.deptName);
+        printf("%s     ", temp->data.designationName);
+        printf("%.0f   ", &temp->data.totalSalary);
+        printf("%.0f   ", &temp->data.phoneNumber);
         printf("\n");
         temp = temp->next;
     }
@@ -68,13 +68,6 @@ int main() {
     head = NULL;
     DATA sample;
     char choice;
-
-    // sample.SSN = 12323432;
-	// sample.name = "Ruthvik";
-	// sample.deptName = "IT";
-	// sample.designationName = "Developer";
-	// sample.totalSalary = 75000;
-	// sample.phoneNumber = 9901333964;
 
     while(1) {
         printf("Enter Employee Records.\n\n");
@@ -91,10 +84,5 @@ int main() {
         else if(choice=='N'||choice == 'n')
             break;
     }
-    // insertAtTail(sample);
-    // insertAtTail(sample);
-    // insertAtHead(sample);
-    // insertAtTail(sample);
-
     printList();
 }
