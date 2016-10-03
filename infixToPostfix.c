@@ -1,6 +1,5 @@
-#include<stdio.h>
-#include<conio.h>
-#include<ctype.h>
+#include <stdio.h>
+#include <ctype.h>
 #define MAX 100
 
 typedef struct stack
@@ -23,8 +22,7 @@ stack s;
 char x;
 int token;
 init(&s);
-clrscr();
-printf("nEnter infix expression:");
+printf("Enter 'infix' Expression:");
   while((token=getchar())!='n')
   {
     if(isalnum(token))
@@ -39,7 +37,7 @@ printf("nEnter infix expression:");
              printf("%c",x);
          else
          {
-         while(priority(token)< =priority(top(&s)) && !empty(&s))
+         while(priority(token) <= priority(top(&s)) && !empty(&s))
              {
              x=pop(&s);
              printf("%c",x);
@@ -53,7 +51,7 @@ printf("nEnter infix expression:");
     x=pop(&s);
     printf("%c",x);
     }
-getch();
+getchar();
 }
 //---------------------------------------------
 int priority(char x)
@@ -66,12 +64,12 @@ int priority(char x)
  return(2);
    return(3);
 }
-//---------------------------------------------
+
 void init(stack *s)
 {
    s->top=-1;
 }
-//---------------------------------------------
+
 int empty(stack *s)
 {
     if(s->top==-1)
@@ -79,7 +77,7 @@ int empty(stack *s)
     else 
  return(0);
 }
-//---------------------------------------------
+
 int full(stack *s)
 {
     if(s->top==MAX-1)
@@ -87,13 +85,13 @@ int full(stack *s)
     else 
  return(0);
 }
-//---------------------------------------------
+
 void push(stack *s,char x)
 {
   s->top=s->top+1;
   s->data[s->top]=x;
 }
-//---------------------------------------------
+
 char pop(stack *s)
 {
    int x;
@@ -101,9 +99,8 @@ char pop(stack *s)
    s->top=s->top-1;
    return(x);
 }
-//---------------------------------------------
+
 char top(stack * s)
 {
    return(s->data[s->top]);
 }
-//---------------------------------------------
