@@ -45,7 +45,7 @@ int main() {
 }
 
 void createArray() {
-    printf("Enter vlaue of 'n':");
+    printf("Enter value of 'n':");
     scanf("%d", &n);
     printf("Enter %d Elements:\n", n);
     for (i = 0; i < n; i++) {
