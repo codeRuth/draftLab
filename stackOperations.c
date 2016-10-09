@@ -1,93 +1,92 @@
+// Design, Develop and Implement a menu driven Program in C for the following operations on
+// STACK of Integers (Array Implementation of Stack with maximum size MAX)
+//      a. Push an Element on to Stack
+//      b. Pop an Element from Stack
+//      c. Demonstrate how Stack can be used to check Palindrome
+//      d. Demonstrate Overflow and Underflow situations on Stack
+//      e. Display the status of Stack
+//      f. Exit
+// Support the program with appropriate functions for each of the above operations
+
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 100
+#define MAX 10
+
 int STACK[MAX], top = -1;
 
 void push(int);
-int pop();
-void peep();
+int  pop();
 void display();
 void checkPalindrome();
 
 int main() {
     int choice, item;
-    while(1){
-			printf("\n1.Push\n");
-			printf("2.Pop\n");
-			printf("3.Display\n");
-			printf("4.Check Palindrome\n");
-			printf("5.Exit\n");
-			printf("\nEnter your choice: ");
-			scanf("%d", &choice);
-			switch (choice) {
-				case 1:
-					printf("Enter the element to be inserted: ");
-					scanf("%d", &item);
-				    push(item);
-				    break;
-				case 2:
-					printf("%d Popped.", pop());
-				    break;
-				case 3:
-				    display();
-				    break;
-				case 4:
-				    checkPalindrome();
-				    break;
-				case 5:
-				    exit(0);
-				default:
-				    printf("\nInvalid choice:\n");
-			}
+    while(1) {
+        printf("\n1.Push  2.Pop  3.Display  4.Check Palindrome  5.Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+	    printf("\n");
+        switch (choice) {
+            case 1:
+                printf("Enter the element to be inserted: ");
+                scanf("%d", &item);
+                push(item);
+		        printf("%d pushed to STACK\n", item);
+                break;
+            case 2:
+                printf("%d Popped.\n", pop());
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                checkPalindrome();
+                exit(0);
+            case 5:
+    	    	printf("Exiting.\n");
+                exit(0);
+            default:
+                printf("\nInvalid choice:\n");
+        }
     }
-    return 0;
 }
 
 void push(int item) {
-    if (top == (MAX - 1)) {
-		printf("\nSTACK Overflow:");
-    } else {
-		STACK[++top] = item;
-    }
+    if (top == (MAX - 1))
+        printf("\nSTACK Overflow.");
+    else
+        STACK[++top] = item;
 }
 
 int pop() {
-	int item;
     if (top == -1) {
-		printf("STACK Underflow:");
-		item = -1;
-    } else {
-		item = STACK[top--];
-    }
-    return item;
+        printf("STACK Underflow.");
+        return -1;
+    } else
+        return STACK[top--];
 }
 
 void display() {
     int i;
-    if (top == -1) {
-		printf("\nSTACK is Empty:");
-    } else {
-		for (i = top; i >= 0; i--) {
-		    printf("%d\n", STACK[i]);
-		}
-    }
+    if (top == -1)
+        printf("\nSTACK is Empty.");
+    else
+        for (i = top; i >= 0; i--)
+            printf("[%d]\n", STACK[i]);
 }
 
 void checkPalindrome() {
-	int TEMP[MAX], flag=1;
-	for (int i=0;i<(top-1);i++) {
-		TEMP[i]=pop();
-	}
-	for (int i=0;i<(top-1);i++) {
-		if(STACK[i]==TEMP[i]) {
-			flag=0;
-		}
-		else
-			flag=1;
-	}
-	if(flag == 1) {
-		printf("Not a Palindrome\n");
-	} else {
-		printf("It is a Palindrome\n");
-	}
+    int *TEMP, flag=1, i;
+    TEMP = STACK;
+
+    for (i = 0; i < (top-1); i++)
+        if(TEMP[i] == pop())
+            flag = 0;
+        else
+            flag = 1; 
+
+    if(flag == 1)
+        printf("Not a Palindrome\n");
+    else
+        printf("It is a Palindrome\n");
 }

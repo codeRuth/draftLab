@@ -1,7 +1,15 @@
+// Design, Develop and Implement a menu driven Program in C for the following Array operations
+//      a. Creating an Array of N Integer Elements
+//      b. Display of Array Elements with Suitable Headings
+//      c. Inserting an Element (ELEM) at a given valid Position (POS)
+//      d. Deleting an Element at a given valid Position(POS)
+//      e. Exit.
+// Support the program with functions for each of the above operations.
+
 #include <stdio.h>
 #include <stdlib.h>
-int a[20], b[20], c[40];
-int m, n, p, val, i, j, pos, temp;
+
+int a[20], val, i, j, pos, temp, n;
 
 void createArray();
 void displayElements();
@@ -11,11 +19,7 @@ void deleteElement();
 int main() {
     int choice;
     do {
-        printf("\n1.Create\n");
-        printf("2.Display\n");
-        printf("3.Insert\n");
-        printf("4.Delete\n");
-        printf("5.Exit\n");
+        printf("\n1.Create  2.Display  3.Insert  4.Delete  5.Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
         switch (choice) {
@@ -32,12 +36,12 @@ int main() {
             deleteElement();
             break;
         case 5:
+            printf("Exiting.\n");
             exit(0);
         default:
             printf("Invalid choice.");
         }
     } while (1);
-    return 0;
 }
 
 void createArray() {
@@ -59,6 +63,7 @@ void displayElements() {
     for (i = 0; i < n; i++) {
         printf(" %d   ", a[i]);
     }
+    printf("\n");
 }
 
 void insertElement() {
@@ -66,19 +71,19 @@ void insertElement() {
     scanf("%d", &pos);
     printf("Enter the Element to be Inserted: ");
     scanf("%d", &val);
-    for (i = n - 1; i >= pos; i--) {
-        a[i + 1] = a[i];
+    for (i = n-1; i >= pos; i--) {
+        a[i+1] = a[i];
     }
     a[pos] = val;
-    n = n + 1;
+    n = n+1;
 }
 
 void deleteElement() {
     printf("Enter the Position for the Element: ");
     scanf("%d", &pos);
     val = a[pos];
-    for (i = pos; i < n - 1; i++) {
-        a[i] = a[i + 1];
+    for (i = pos; i < n-1; i++) {
+        a[i] = a[i+1];
     }
     n = n-1;
     printf("The Deleted Element is : %d", val);

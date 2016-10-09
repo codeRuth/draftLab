@@ -72,11 +72,11 @@ int main() {
     while(1) {
         printf("Enter Employee Records.\n\n");
         printf("SSN : ");scanf("%lf", &sample.SSN);
-        printf("Employee Name : ");scanf("%s",  &sample.name);
-        printf("Department    : ");scanf("%s",  &sample.deptName);
-        printf("Designation   : ");scanf("%s",  &sample.designationName);
-        printf("Total Salary  : ");scanf("%lf", &sample.totalSalary);
-        printf("Phone Number  : ");scanf("%lf", &sample.phoneNumber);
+        printf("Employee Name : "); scanf("%s",  &sample.name);
+        printf("Department    : "); scanf("%s",  &sample.deptName);
+        printf("Designation   : "); scanf("%s",  &sample.designationName);
+        printf("Total Salary  : "); scanf("%lf", &sample.totalSalary);
+        printf("Phone Number  : "); scanf("%lf", &sample.phoneNumber);
         insertAtTail(sample);
         printf("Do You want to continue ? (Y/N) :\n");scanf("%s", &choice);
         if(choice=='Y'||choice == 'y') 
