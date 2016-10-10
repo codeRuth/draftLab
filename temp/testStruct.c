@@ -2,7 +2,7 @@
 
 struct data {
 	int a;
-	char b[20];
+	char *b;
 };
 
 typedef struct data DATA;
@@ -12,5 +12,5 @@ int main() {
 	printf("Enter the data:");
 	scanf("%d", &sample.a);
 	scanf("%s", sample.b);
-	printf("%d, %s", sample.a, &sample.b);
+	printf("%d, %s", sample.a, sample.b);
 }

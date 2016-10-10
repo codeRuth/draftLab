@@ -1,6 +1,15 @@
+// Design, Develop and Implement a Program for the following operations on SCLL
+// Linked List (SCLL) with header nodes
+// 	a. Represent and Evaluate a Polynomial
+//	   P(x,y,z) = 6x 2 y 2 z-4yz 5 +3x 3 yz+2xy 5 z-2xyz 3
+// 	b. Find the sum of two polynomials 
+//         POLY1(x,y,z) and POLY2(x,y,z) and store the result in POLYSUM(x,y,z)
+// Support the program with appropriate functions for each of the above operations
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+
 typedef struct poly {
     int c;
     int e;
@@ -91,14 +100,17 @@ POLY* addLastNode(POLY *nn, POLY *h3, POLY *last) {
     else
         last->link = nn;
     nn->link = h3;
+
     return(h3);
 }
 
 POLY *addPolynomial(POLY *h1, POLY *h2) {
     POLY *p = NULL, *q = NULL, *nn = NULL;
     int c, e;
+    
     POLY *h3 = NULL;
     POLY *last = NULL;
+
     p = h1;
     q = h2;
     do {

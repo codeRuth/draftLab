@@ -2,9 +2,9 @@
 #include <stdlib.h>
 struct data {
 	double SSN;
-	char   *name;
-	char   *deptName;
-	char   *designationName;
+	char   name[20];
+	char   deptName[10];
+	char   designationName[10];
 	double totalSalary;
 	double phoneNumber;
 };
@@ -36,6 +36,20 @@ void insertAtHead(DATA x) {
     head = newNode;
 }
 
+void deleteAtHead(node **head, node **tail) {
+    node *temp;
+    if(*head==NULL)
+        return;
+    temp=*head;
+    if(*head==*tail)
+        *head=*tail=NULL;
+    else {
+        (temp->next)->prev=NULL;
+        *head=temp->next;
+    }
+    free(temp);
+}
+
 void insertAtTail(DATA x) {
     struct NODE* temp = head;
     struct NODE* newNode = getNewNode(x);
@@ -52,12 +66,12 @@ void printList() {
     struct NODE* temp = head;
     printf("SSN\tEmployee Name\tDepartment\tDesignation\tTotal Salary\tPhone Number\n");
     while(temp != NULL) {
-        printf("%.0f   ", &temp->data.SSN);
+        printf("%.0f   ", temp->data.SSN);
         printf("%s     ", temp->data.name);
         printf("%s     ", temp->data.deptName);
         printf("%s     ", temp->data.designationName);
-        printf("%.0f   ", &temp->data.totalSalary);
-        printf("%.0f   ", &temp->data.phoneNumber);
+        printf("%.0f   ", temp->data.totalSalary);
+        printf("%.0f   ", temp->data.phoneNumber);
         printf("\n");
         temp = temp->next;
     }
@@ -68,13 +82,12 @@ int main() {
     head = NULL;
     DATA sample;
     char choice;
-
     while(1) {
         printf("Enter Employee Records.\n\n");
         printf("SSN : ");scanf("%lf", &sample.SSN);
-        printf("Employee Name : "); scanf("%s",  &sample.name);
-        printf("Department    : "); scanf("%s",  &sample.deptName);
-        printf("Designation   : "); scanf("%s",  &sample.designationName);
+        printf("Employee Name : "); scanf("%s",  sample.name);
+        printf("Department    : "); scanf("%s",  sample.deptName);
+        printf("Designation   : "); scanf("%s",  sample.designationName);
         printf("Total Salary  : "); scanf("%lf", &sample.totalSalary);
         printf("Phone Number  : "); scanf("%lf", &sample.phoneNumber);
         insertAtTail(sample);
