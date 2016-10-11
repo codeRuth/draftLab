@@ -6,3 +6,4 @@
 *.so
 *.c~
 ./a.out
+.idea/

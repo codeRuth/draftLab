@@ -6,8 +6,8 @@
 //      d. Delete an element(ELEM) from BST
 //      e. Exit
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 struct BST  {
     int data;
@@ -30,18 +30,18 @@ void preOrder(NODE);
 void postOrder(NODE);
 void search(NODE, int);
 
-void insert(NODE root, NODE newnode) {
-    if (newnode->data < root->data) {
+void insert(NODE root, NODE newNode) {
+    if (newNode->data < root->data) {
         if (root->lchild == NULL)
-            root->lchild = newnode;
+            root->lchild = newNode;
         else
-            insert(root->lchild, newnode);
+            insert(root->lchild, newNode);
     }
-    if (newnode->data > root->data) {
+    if (newNode->data > root->data) {
         if (root->rchild == NULL)
-            root->rchild = newnode;
+            root->rchild = newNode;
         else
-            insert(root->rchild, newnode);
+            insert(root->rchild, newNode);
     }
 }
 
@@ -53,7 +53,7 @@ void search(NODE root, int key) {
     cur = root;
     while (cur != NULL) {
         if (cur->data == key) {
-            printf("\nElement %d is found in BST", cur->data);
+            printf("Element %d is found in BST\n", cur->data);
             return;
         }
         if (key < cur->data)
@@ -88,7 +88,6 @@ void postOrder(NODE root) {
     }
 }
 
-
 void main() {
     int ch, key, val, i, n;
     NODE root = NULL, newNode;
@@ -96,7 +95,7 @@ void main() {
         printf("\n---BINARY SEARCH TREE---");
         printf("\n1. Create a BST.");
         printf("\n2. Search.");
-        printf("\n3. BST Traversals.");
+        printf("\n3. BST Traversal.");
         printf("\n4. Exit.");
         printf("\nEnter your Choice: ");
         scanf("%d", &ch);
@@ -104,13 +103,13 @@ void main() {
             case 1:
                 printf("\nEnter the number of elements: "); scanf("%d", &n);
                 for(i=1; i<=n; i++) {
-                    newnode = getNode();
-                    printf("\nEnter The value: "); scanf("%d", &val);
-                    newnode->data = val;
+                    newNode = getNode();
+                    printf("Enter The value: "); scanf("%d", &val);
+                    newNode->data = val;
                     if (root == NULL)
-                        root = newnode;
+                        root = newNode;
                     else
-                        insert(root, newnode);
+                        insert(root, newNode);
                 }
                 break;
             case 2:
@@ -121,12 +120,13 @@ void main() {
                 if (root == NULL)
                     printf("\nTree Is Not Created");
                 else {
-                    printf("\nThe Pre-Order Display : ");
+                    printf("\nThe Pre-Order Display  : ");
                     preOrder(root);
-                    printf("\nThe In-Order Display  : ");
+                    printf("\nThe In-Order Display   : ");
                     inOrder(root);
                     printf("\nThe Post-Order Display : ");
                     postOrder(root);
+                    printf("\n");
                 }
                 break;
             case 4: exit(0);

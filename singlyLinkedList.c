@@ -1,5 +1,5 @@
-// Design, Develop and Implement a menu driven Program in C for the following operations on
-// Singly Linked List (SLL) of Student Data with the fields: USN, Name, Branch, Sem, PhNo
+// Design, Develop and Implement a Program in C for the following operations on
+// Singly Linked List of Student Data with the fields: USN, Name, Branch, Sem, PhNo
 //        a. Create a SLL of N Students Data by using front insertion.
 //        b. Display the status of SLL and count the number of nodes in it
 //        c. Perform Insertion and Deletion at End of SLL
@@ -43,12 +43,13 @@ NODE createNode() {
         printf("\nMemory not Available.");
         exit(0);
     }
+
     studentNode->data = sample; count++;
     return studentNode;
 }
 
 NODE insertAtFront() {
-    NODE temp;
+    NODE temp; 
     temp = createNode();
     if(first == NULL) {
         temp->link = NULL;
@@ -111,16 +112,17 @@ NODE deleteAtEnd() {
         cur = cur->link;
     }
     printf("\nThe Student USN: %s Deleted.", cur->data.USN);
-    free(cur); prev->link = NULL; count--;
+    free(cur); 
+    prev->link = NULL; count--;
     return first;
 }
 
 void displayStatus() {
     NODE cur;
-    int nodeNo = 1; cur = first;
+    int nodeNo = 1; 
+    cur = first;
     printf("\nThe Contents of SLL: \n");
     printf("\nSl. No.   USN         Name      Branch    Semester Phone No. \n");
-    printf("--------------------------------------------------------------\n");
     if(cur == NULL)
         printf("\nNo Contents in SLL. \n");
     while(cur!=NULL) {
