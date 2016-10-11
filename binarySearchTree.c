@@ -1,8 +1,8 @@
-//Design, Develop and Implement a menu driven Program in C for the following operations on
+//Design, Develop and Implement a Program in C for the following operations on
 //Binary Search Tree (BST) of Integers
 //      a. Create a BST of N Integers: 6, 9, 5, 2, 8, 15, 24, 14, 7, 8, 5, 2
 //      b. Traverse the BST in In-Order, Pre-Order and Post-Order
-//      c. Search the BST for a given element (KEY) and report the appropriate message
+//      c. Search the BST for a element (KEY) and report the appropriate message
 //      d. Delete an element(ELEM) from BST
 //      e. Exit
 
@@ -47,10 +47,12 @@ void insert(NODE root, NODE newNode) {
 
 void search(NODE root, int key) {
     NODE cur;
+
     if(root == NULL) {
         printf("\nBST is empty."); return;
     }
     cur = root;
+
     while (cur != NULL) {
         if (cur->data == key) {
             printf("Element %d is found in BST\n", cur->data);
@@ -61,6 +63,7 @@ void search(NODE root, int key) {
         else
             cur = cur->rchild;
     }
+
     printf("\nElement %d is not found in the BST", key);
 }
 
