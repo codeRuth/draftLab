@@ -11,9 +11,9 @@
 #include <stdlib.h>
 
 struct data {
-    char   USN[10];
-    char   studentName[10];
-    char   branchName[10];
+    char   USN[200];
+    char   studentName[20];
+    char   branchName[20];
     int    currentSem;
     double phoneNumber;
 };
@@ -119,16 +119,17 @@ void displayStatus() {
     NODE cur;
     int nodeNo = 1; cur = first;
     printf("\nThe Contents of SLL: \n");
-    printf("\nSl. No.\tUSN\tName\tBranch\tSemester\tPhone No.\n");
+    printf("\nSl. No.   USN         Name      Branch    Semester Phone No. \n");
+    printf("--------------------------------------------------------------\n");
     if(cur == NULL)
         printf("\nNo Contents in SLL. \n");
     while(cur!=NULL) {
-        printf("%d\t"    , nodeNo);
-        printf("%s\t"    , cur->data.USN);
-        printf("%s\t"    , cur->data.studentName);
-        printf("%s\t"    , cur->data.branchName);
-        printf("%d\t"    , cur->data.currentSem);
-        printf("%.0lf\t" , cur->data.phoneNumber);
+        printf("%-10d", nodeNo);
+        printf("%-12s", cur->data.USN);
+        printf("%-10s", cur->data.studentName);
+        printf("%-10s", cur->data.branchName);
+        printf("%-10d", cur->data.currentSem);
+        printf("%.0lf\t", cur->data.phoneNumber);
         cur = cur->link; nodeNo++;
     }
     printf("\nNo of Student Nodes is %d \n", count);
