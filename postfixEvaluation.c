@@ -31,7 +31,7 @@ float pop(float STACK[]) {
 
 float postEval(char exp[]) {
     float value, op1, op2;
-    int i=0;
+    int i = 0;
     while(exp[i] != '\0') {
         if(isdigit(exp[i]))
             push(STACK, (exp[i]-'0'));
@@ -39,16 +39,21 @@ float postEval(char exp[]) {
             op2 = pop(STACK), op1 = pop(STACK);
             switch(exp[i]) {
                 case '+':
-                    value = op1+op2;
+                    value = op1 + op2;
                     break;
                 case '-':
-                    value = op1-op2;
+                    value = op1 - op2;
                     break;
                 case '*':
-                    value = op1*op2;
+                    value = op1 * op2;
                     break;
                 case '/':
-                    value = op1/op2;
+                    if(op2 == 0) {
+                        printf("Divide by 0 Error.");
+                        return;
+                    }
+                    else
+                        value = op1 / op2;
                     break;
                 case '%':
                     value = (int)op1 % (int)op2;
@@ -56,8 +61,7 @@ float postEval(char exp[]) {
                 case '^':
                     value = pow((int)op1, (int)op2);
                     break;
-                default:
-                    value= 0;
+                default: value = 0;
             }
             push(STACK, value);
         } i++;

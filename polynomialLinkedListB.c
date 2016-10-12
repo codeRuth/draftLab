@@ -1,6 +1,15 @@
+// Design, Develop and Implement a Program for the following operations on 
+// Singly Circular Linked List (SCLL) with header nodes
+//      a. Represent and Evaluate a Polynomial 
+//         P(x,y,z) = 6x^2^y^2^z - 4yz^5 + 3x^3^yz + 2xy^5^z - 2xyz^3
+//      b. Find the sum of polynomials POLY1(x,y,z) and POLY2(x,y,z) and store 
+//         the result in POLYSUM(x,y,z)
+// Support the program with appropriate functions for each of the above operations
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
 struct pExponent{
     int expX;
     int expY;
@@ -32,10 +41,11 @@ void displayPoly(POLY *head) {
         printf("Polynomial does not Exist\n");
         return;
     }
+
     temp = head->link;
-    printf("\n");
     while(temp != head) {
-        printf("%d(x^%d y^%d z^%d)", temp->pCoeff, temp->pExpo.expX, temp->pExpo.expY, temp->pExpo.expZ);
+        printf("%d(x^%d y^%d z^%d)", temp->pCoeff, temp->pExpo.expX, 
+				     temp->pExpo.expY, temp->pExpo.expZ);
         if(temp->link != head)
             printf(" + ");
         temp = temp->link;
@@ -49,6 +59,7 @@ POLY* insertRear(int pCoeff, int expX, int expY, int expZ, POLY *head) {
     temp->pCoeff = pCoeff;
     temp->pExpo.expX = expX; temp->pExpo.expY = expY; temp->pExpo.expZ = expZ;
     cur = head->link;
+
     while(cur->link != head) {
         cur = cur->link;
     }
