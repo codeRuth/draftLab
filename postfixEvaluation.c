@@ -1,5 +1,6 @@
-// Design, Develop and Implement a Program in C for the following Stack Applications
-//      a. Evaluation of Suffix expression with single digit operands and operators: +, -, *, /, %, ^
+// Design, Develop and Implement a Program for the following Stack Applications
+//      a. Evaluation of Suffix expression with : 
+//	   Single digit Operands and operators: +, -, *, /, %, ^
 //      b. Solving Tower of Hanoi problem with n disks
 
 #include <stdio.h>
@@ -38,15 +39,9 @@ float postEval(char exp[]) {
         else {
             op2 = pop(STACK), op1 = pop(STACK);
             switch(exp[i]) {
-                case '+':
-                    value = op1 + op2;
-                    break;
-                case '-':
-                    value = op1 - op2;
-                    break;
-                case '*':
-                    value = op1 * op2;
-                    break;
+                case '+': value = op1 + op2; break;
+                case '-': value = op1 - op2; break;
+                case '*': value = op1 * op2; break;
                 case '/':
                     if(op2 == 0) {
                         printf("Divide by 0 Error.");
@@ -55,12 +50,8 @@ float postEval(char exp[]) {
                     else
                         value = op1 / op2;
                     break;
-                case '%':
-                    value = (int)op1 % (int)op2;
-                    break;
-                case '^':
-                    value = pow((int)op1, (int)op2);
-                    break;
+                case '%': value = (int)op1 % (int)op2;     break;
+                case '^': value = pow((int)op1, (int)op2); break;
                 default: value = 0;
             }
             push(STACK, value);

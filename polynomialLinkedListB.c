@@ -98,7 +98,9 @@ POLY* addPoly(POLY *h1, POLY *h2, POLY *h3) {
             eTwo.expY = polyTwo->pExpo.expY;
             eTwo.expZ = polyTwo->pExpo.expZ;
             pCoeffTwo = polyTwo->pCoeff;
-            if(eOne.expX == eTwo.expX && eOne.expY == eTwo.expY && eOne.expZ == eTwo.expZ)
+            if(	eOne.expX == eTwo.expX &&
+		eOne.expY == eTwo.expY && 
+		eOne.expZ == eTwo.expZ )
                 break;
             polyTwo = polyTwo->link;
         }
@@ -116,7 +118,8 @@ POLY* addPoly(POLY *h1, POLY *h2, POLY *h3) {
     polyTwo = h2->link;
     while(polyTwo != h2) {
         if(polyTwo->flag == 0)
-            h3 = insertRear(polyTwo->pCoeff, polyTwo->pExpo.expX, polyTwo->pExpo.expY, polyTwo->pExpo.expZ, h3);
+            h3 = insertRear(polyTwo->pCoeff, polyTwo->pExpo.expX, 
+			    polyTwo->pExpo.expY, polyTwo->pExpo.expZ, h3);
         polyTwo = polyTwo->link;
     }
     return h3;
