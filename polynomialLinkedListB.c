@@ -61,7 +61,7 @@ NODE* readPoly(NODE *head) {
     do {
         printf("\nEnter Coefficient: ");
         scanf("%d", &pCoeff);
-        printf("\nEnter Powers of x, y, z (0 - indicate No Term): ");
+        printf("Enter Powers of x, y, z (0 - indicate No Term): ");
         scanf("%d %d %d", &expX, &expY, &expZ);
         head = insertRear(pCoeff, expX, expY, expZ, head);
         printf("\nIf you wish to continue press 1 otherwise 0: ");
@@ -117,21 +117,17 @@ void evaluate(NODE *h1) {
     printf("\nEnter x, y, z, terms to evaluate:\n");
     scanf("%d %d %d", &temp.expX, &temp.expY, &temp.expZ);
     while(h1->link != head) {
-        result = result +
-                ( h1->pCoeff *
-                    pow(temp.expX, h1->pExpo.expX) *
-                    pow(temp.expY, h1->pExpo.expY) *
-                    pow(temp.expZ, h1->pExpo.expZ)
-                );
+        result = result + (h1->pCoeff *
+                 pow(temp.expX, h1->pExpo.expX) *
+                 pow(temp.expY, h1->pExpo.expY) *
+                 pow(temp.expZ, h1->pExpo.expZ));
         h1 = h1->link;
     }
-    result = result +
-             ( h1->pCoeff *
-               pow(temp.expX, h1->pExpo.expX) *
-               pow(temp.expY, h1->pExpo.expY) *
-               pow(temp.expZ, h1->pExpo.expZ)
-             );
-    printf("\nPolynomial result is: %.)f", result);
+    result = result + (h1->pCoeff *
+              pow(temp.expX, h1->pExpo.expX) *
+              pow(temp.expY, h1->pExpo.expY) *
+              pow(temp.expZ, h1->pExpo.expZ));
+    printf("\nPolynomial result is: %.0f", result);
 }
 
 void main() {
