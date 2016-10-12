@@ -14,11 +14,11 @@ struct node {
     EXPO pExpo;
     struct node *link;
 };
-typedef struct node NODE;
+typedef struct node POLY;
 
-NODE* getNode() {
-    NODE *x;
-    x = (NODE*) malloc(sizeof(NODE));
+POLY* getNode() {
+    POLY *x;
+    x = (POLY*) malloc(sizeof(POLY));
     if(x == NULL) {
         printf("Insufficient Memory\n");
         exit(0);
@@ -26,8 +26,8 @@ NODE* getNode() {
     return x;
 }
 
-void display(NODE *head) {
-    NODE *temp;
+void displayPoly(POLY *head) {
+    POLY *temp;
     if(head->link == head) {
         printf("Polynomial does not Exist\n");
         return;
@@ -35,7 +35,7 @@ void display(NODE *head) {
     temp = head->link;
     printf("\n");
     while(temp != head) {
-        printf("%d x^%d y^%d z^%d", temp->pCoeff, temp->pExpo.expX, temp->pExpo.expY, temp->pExpo.expZ);
+        printf("%d(x^%d y^%d z^%d)", temp->pCoeff, temp->pExpo.expX, temp->pExpo.expY, temp->pExpo.expZ);
         if(temp->link != head)
             printf(" + ");
         temp = temp->link;
@@ -43,8 +43,8 @@ void display(NODE *head) {
     printf("\n");
 }
 
-NODE* insertRear(int pCoeff, int expX, int expY, int expZ, NODE *head) {
-    NODE *temp, *cur;
+POLY* insertRear(int pCoeff, int expX, int expY, int expZ, POLY *head) {
+    POLY *temp, *cur;
     temp = getNode();
     temp->pCoeff = pCoeff;
     temp->pExpo.expX = expX; temp->pExpo.expY = expY; temp->pExpo.expZ = expZ;
@@ -56,22 +56,22 @@ NODE* insertRear(int pCoeff, int expX, int expY, int expZ, NODE *head) {
     return head;
 }
 
-NODE* readPoly(NODE *head) {
-    int expX, expY, expZ, pCoeff, ch;
-    do {
-        printf("\nEnter Coefficient: ");
+POLY* readPoly(POLY *head) {
+    int expX, expY, expZ, pCoeff, n, i;
+    printf("\nEnter the Number of Terms: ");
+    scanf("%d", &n);
+    for(i = 1; i<=n; i++) {
+        printf("Enter Coefficient: ");
         scanf("%d", &pCoeff);
-        printf("Enter Powers of x, y, z (0 - indicate No Term): ");
+        printf("Enter Powers of x, y, z (0 - indicates No Term): \n");
         scanf("%d %d %d", &expX, &expY, &expZ);
         head = insertRear(pCoeff, expX, expY, expZ, head);
-        printf("\nIf you wish to continue press 1 otherwise 0: ");
-        scanf("%d", &ch);
-    } while(ch != 0);
+    }
     return head;
 }
 
-NODE* addPoly(NODE *h1, NODE *h2, NODE *h3) {
-    NODE *polyOne, *polyTwo;
+POLY* addPoly(POLY *h1, POLY *h2, POLY *h3) {
+    POLY *polyOne, *polyTwo;
     EXPO eOne, eTwo;
     int pCoeffOne, pCoeffTwo, pCoeff;
     polyOne = h1->link;
@@ -111,8 +111,8 @@ NODE* addPoly(NODE *h1, NODE *h2, NODE *h3) {
     return h3;
 }
 
-void evaluate(NODE *h1) {
-    NODE *head; EXPO temp;
+void evaluate(POLY *h1) {
+    POLY *head; EXPO temp;
     float result = 0.0; head = h1;
     printf("\nEnter x, y, z, terms to evaluate:\n");
     scanf("%d %d %d", &temp.expX, &temp.expY, &temp.expZ);
@@ -131,7 +131,7 @@ void evaluate(NODE *h1) {
 }
 
 void main() {
-    NODE *h1, *h2, *h3;
+    POLY *h1, *h2, *h3;
     int ch;
     h1 = getNode(); h2 = getNode(); h3 = getNode();
     h1->link = h1; h2->link = h2; h3->link = h3;
@@ -141,18 +141,18 @@ void main() {
         scanf("%d", &ch);
         switch(ch) {
             case 1: h1 = readPoly(h1); break;
-            case 2: display(h1);       break;
+            case 2: displayPoly(h1);   break;
             case 3:
-                printf("\nEnter Polynomial to Evaluate:\n");
-                h1 = readPoly(h1); display(h1); evaluate(h1);
+                printf("\nEnter Polynomial to Evaluate:");
+                h1 = readPoly(h1); displayPoly(h1); evaluate(h1);
                 break;
             case 4:
                 printf("\nEnter the First Polynomial:  "); h1 = readPoly(h1);
                 printf("\nEnter the Second Polynomial: "); h2 = readPoly(h2);
                 h3 = addPoly(h1, h2, h3);
-                printf("\nFirst Polynomial is: ");  display(h1);
-                printf("\nSecond Polynomial is: "); display(h2);
-                printf("\nSum of the Two Polynomial is: "); display(h3);
+                printf("\nFirst Polynomial is: ");  displayPoly(h1);
+                printf("\nSecond Polynomial is: "); displayPoly(h2);
+                printf("\nSum of the Two Polynomial is: "); displayPoly(h3);
                 break;
             case 5: exit(0); break;
             default: printf("\nInvalid Entry");break;
