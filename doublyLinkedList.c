@@ -126,11 +126,12 @@ NODE deleteAtEnd() {
 
 void displayStatus() {
     NODE cur; int nodeNo=1; cur = first;
-    printf("\nSl. No.  SSN       Name      Department  Designation  Salary  Phone No.\n");
+    printf("\nSl. No.   SSN       Name      Department  Designation  Salary  Phone No.\n");
     if(cur == NULL)
         printf("\nNo Contents to Display.");
     while(cur!=NULL) {
-        printf("%.0f", cur->data.SSN);
+        printf("%-10d", nodeNo);
+        printf("%.0f" , cur->data.SSN);
         printf("%-10s\t"  , cur->data.empName);
         printf("%-10s\t"  , cur->data.deptName);
         printf("%-10s\t"  , cur->data.designationName);
