@@ -86,5 +86,5 @@ void deleteElement() {
         a[i] = a[i+1];
     }
     n = n-1;
-    printf("The Deleted Element is : %d", val);
+    printf("The Deleted Element is : %d\n", val);
 }
