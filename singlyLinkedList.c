@@ -122,7 +122,7 @@ void displayStatus() {
     int nodeNo = 1; 
     cur = first;
     printf("\nThe Contents of SLL: \n");
-    printf("\nSl. No.   USN         Name      Branch    Semester Phone No. \n");
+    printf("\nSl. No.   USN         Name      Branch    Semester  Phone No. \n");
     if(cur == NULL)
         printf("\nNo Contents in SLL. \n");
     while(cur!=NULL) {
@@ -133,6 +133,7 @@ void displayStatus() {
         printf("%-10d", cur->data.currentSem);
         printf("%.0lf\t", cur->data.phoneNumber);
         cur = cur->link; nodeNo++;
+        printf("\n");
     }
     printf("\nNo of Student Nodes is %d \n", count);
 }
