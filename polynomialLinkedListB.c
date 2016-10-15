@@ -145,7 +145,7 @@ void evaluate(POLY *h1) {
 }
 
 void main() {
-    POLY *h1, *h2, *h3;
+    POLY *h1, *h2, *h3, *temp;
     int ch;
     h1 = getNode(); h2 = getNode(); h3 = getNode();
     h1->link = h1; h2->link = h2; h3->link = h3;
@@ -156,10 +156,7 @@ void main() {
         switch(ch) {
             case 1: h1 = readPoly(h1); break;
             case 2: displayPoly(h1);   break;
-            case 3:
-                printf("\nEnter Polynomial to Evaluate:");
-                h1 = readPoly(h1); displayPoly(h1); evaluate(h1);
-                break;
+            case 3: displayPoly(h1); evaluate(h1); break;
             case 4:
                 printf("\nEnter the First Polynomial:  "); h1 = readPoly(h1);
                 printf("\nEnter the Second Polynomial: "); h2 = readPoly(h2);
