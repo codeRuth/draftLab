@@ -131,7 +131,7 @@ void displayStatus() {
         printf("\nNo Contents to Display.");
     while(cur!=NULL) {
         printf("%-10d", nodeNo);
-        printf("%.0f" , cur->data.SSN);
+        printf("%.0f " , cur->data.SSN);
         printf("%-10s\t"  , cur->data.empName);
         printf("%-10s\t"  , cur->data.deptName);
         printf("%-10s\t"  , cur->data.designationName);
