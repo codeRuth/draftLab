@@ -14,7 +14,7 @@
 
 int STACK[MAX], top = -1;
 
-void push(int);
+int push(int);
 int  pop();
 void display();
 void checkPalindrome();
@@ -31,7 +31,8 @@ int main() {
                 printf("Enter the element to be inserted: ");
                 scanf("%d", &item);
                 push(item);
-		        printf("%d pushed to STACK\n", item);
+                if(item == -1)
+		            printf("%d pushed to STACK\n", item);
                 break;
             case 2:
                 printf("%d Popped.\n", pop());
@@ -51,9 +52,11 @@ int main() {
     }
 }
 
-void push(int item) {
-    if (top == (MAX - 1))
+int push(int item) {
+    if (top == (MAX - 1)) {
         printf("\nSTACK Overflow.");
+        return -1;
+    }
     else
         STACK[++top] = item;
 }
