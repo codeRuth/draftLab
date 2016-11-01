@@ -1,9 +1,0 @@
-*.com
-*.class
-*.dll
-*.exe
-*.out
-*.so
-*.c~
-./a.out
-.idea/
