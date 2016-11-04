@@ -12,10 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c6b75ab-4dfc-42be-8912-60e5dcc26a6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hashTableB.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphMatrix.c" afterPath="$PROJECT_DIR$/graphMatrix.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hashTable.c" afterPath="$PROJECT_DIR$/hashTable.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hashingFile.c" afterPath="$PROJECT_DIR$/hashingFile.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/binarySearchTreeB.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/a.out" afterPath="$PROJECT_DIR$/a.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hashTableB.c" afterPath="$PROJECT_DIR$/hashTableB.c" />
     </list>
     <ignored path="draftLab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +38,8 @@
       <file leaf-file-name="hashTable.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hashTable.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+            <state relative-caret-position="241">
+              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -55,21 +55,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hashTableB.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hashTableB.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hashTableB.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graphMatrix.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="doublyLinkedList.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/doublyLinkedList.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-713">
+              <caret line="130" column="19" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="graphMatrix.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graphMatrix.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="45" column="88" selection-start-line="45" selection-start-column="88" selection-end-line="45" selection-end-column="88" />
+            <state relative-caret-position="810">
+              <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="binarySearchTreeB.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/binarySearchTreeB.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1548">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -101,8 +121,9 @@
         <option value="$PROJECT_DIR$/doublyLinkedList.c" />
         <option value="$PROJECT_DIR$/hashTable.c" />
         <option value="$PROJECT_DIR$/hashingFile.c" />
-        <option value="$PROJECT_DIR$/hashTableB.c" />
         <option value="$PROJECT_DIR$/graphMatrix.c" />
+        <option value="$PROJECT_DIR$/binarySearchTreeB.c" />
+        <option value="$PROJECT_DIR$/hashTableB.c" />
       </list>
     </option>
   </component>
@@ -364,7 +385,10 @@
       <workItem from="1476551657954" duration="5154000" />
       <workItem from="1477730420246" duration="1843000" />
       <workItem from="1478221193580" duration="1731000" />
-      <workItem from="1478223835744" duration="282000" />
+      <workItem from="1478223835744" duration="1245000" />
+      <workItem from="1478228437767" duration="227000" />
+      <workItem from="1478235328424" duration="236000" />
+      <workItem from="1478239987769" duration="2133000" />
     </task>
     <task id="LOCAL-00001" summary="various changes for printing">
       <created>1476018919861</created>
@@ -454,7 +478,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58426000" />
+    <option name="totallyTimeSpent" value="61985000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="18" width="1317" height="750" extended-state="6" />
@@ -510,13 +534,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/singlyLinkedList.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2178">
-          <caret line="121" column="20" selection-start-line="121" selection-start-column="20" selection-end-line="121" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/polynomialLinkedListB.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -747,13 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doublyLinkedList.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="130" column="19" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/polynomialLinkedList.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2664">
@@ -761,10 +771,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hashTable.c">
+    <entry file="file://$PROJECT_DIR$/graphMatrix.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+        <state relative-caret-position="810">
+          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/binarySearchTreeB.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1548">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -777,18 +795,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hashTableB.c">
+    <entry file="file://$PROJECT_DIR$/hashTable.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
+        <state relative-caret-position="241">
+          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphMatrix.c">
+    <entry file="file://$PROJECT_DIR$/doublyLinkedList.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="45" column="88" selection-start-line="45" selection-start-column="88" selection-end-line="45" selection-end-column="88" />
+        <state relative-caret-position="-713">
+          <caret line="130" column="19" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hashTableB.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
