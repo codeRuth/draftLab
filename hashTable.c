@@ -37,7 +37,7 @@ void displayHashTable() {
 
 void main() {
     int i;
-    printf("\nEnter the number of employee  records (N) :   ");
+    printf("\nEnter the number of Employee Records (N) :   ");
     scanf("%d", &n);
 
     printf("\nEnter the four digit key values (K) of 'N' Employee Records:\n  ");

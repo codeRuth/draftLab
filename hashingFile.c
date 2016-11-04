@@ -1,34 +1,35 @@
 #include <stdio.h>
+#include <string.h>
 #define MAX 99
 typedef struct EMP{
-	char SSN[5], studentName[20], nDept[15];
+	char SSN[5], empName[20], nDept[15];
 } EMP;
 
 EMP hashTable[MAX];
 
 void initTable() {
 	int i;
-	for(i = 0; i < m; i++)
-		hashTable[i].SSN[0] = ‘#’;
+	for(i = 0; i < MAX; i++)
+		hashTable[i].SSN[0] = '#';
 }
 
-int hashAdd(char[] key) {
+int hashAdd(char key[]) {
 	int h = 0, i = 0;
 	while (key[i] != '\0') {
 		h += key[i];
 		i++;
 	}
-	return (h % m);
+	return (h % MAX);
 }
 
 void createHashTable() {
-	char SSN[5], studentName[20], nDept[15];
+	char SSN[5], empName[20], nDept[15];
 	int home = 0, i, j, count = 0;
 	if(count == MAX)
 		printf("\nHash Table is full");
 	else {
-		printf("\nEnter SSN, Student Name and Department :");
-		scanf("%s%s%s", SSN, studentName, mDept);
+		printf("\nEnter SSN, Employee Name and Department :");
+		scanf("%s%s%s", SSN, empName, nDept);
 		
 		home = hashAdd(SSN);
 		if(hashTable[home].SSN[0] != '#') {
@@ -37,7 +38,7 @@ void createHashTable() {
 			j = 0;
 			while(j != MAX) {
 				if(hashTable[i].SSN[0]!= '#')
-					i = (i + 1) % m;
+					i = (i + 1) % MAX;
 				else {
 					home = i; 
 					break;
@@ -45,7 +46,7 @@ void createHashTable() {
 			}
 		}
 		strcpy(hashTable[home].SSN, SSN);
-		strcpy(hashTable[home].studentName, studentName);
+		strcpy(hashTable[home].empName, empName);
 		strcpy(hashTable[home].nDept, nDept);
 		count++;
 	}
@@ -53,9 +54,9 @@ void createHashTable() {
 
 void displayTable() {
 	int i = 0;
-	for(i = 0; i < m; i++) {
+	for(i = 0; i < MAX; i++) {
 		if(hashTable[i].SSN[0] != '#')
-			printf("\nSSN = %s \tName = %s \tDepartment = %s\n", hashTable[i].SSN, hashTable[i].studentName, hashTable[i].mDept);
+			printf("\nSSN = %s \tName = %s \tDepartment = %s\n", hashTable[i].SSN, hashTable[i].empName, hashTable[i].nDept);
 		else
 			printf("\n%s\n", hashTable[i].SSN);
 	}
@@ -78,6 +79,6 @@ void writeToFile() {
 	fp = fopen("hello.txt", "w");
 	for(i = 0; i < MAX; i++) {
 		if(hashTable[i].SSN[0]!='#')
-			fprintf(fp, "%s, \t%s, \t%s\n", HT[i].SSN, HT[i].Name, HT[i].dept);
+			fprintf(fp, "%s, \t%s, \t%s\n", hashTable[i].SSN, hashTable[i].empName, hashTable[i].nDept);
 	}
 }
