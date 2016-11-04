@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 100
+#define MAX 10
 
 struct Employee {
     int  SSN;
