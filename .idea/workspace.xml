@@ -11,13 +11,7 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c6b75ab-4dfc-42be-8912-60e5dcc26a6f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/a.out" afterPath="$PROJECT_DIR$/a.out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/binarySearchTreeB.c" afterPath="$PROJECT_DIR$/binarySearchTreeB.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hashTable.c" afterPath="$PROJECT_DIR$/hashTable.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hashTableB.c" afterPath="$PROJECT_DIR$/hashTableB.c" />
-    </list>
+    <list default="true" id="7c6b75ab-4dfc-42be-8912-60e5dcc26a6f" name="Default" comment="" />
     <ignored path="draftLab.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -327,7 +321,7 @@
       <workItem from="1478321129852" duration="2867000" />
       <workItem from="1478324380173" duration="496000" />
       <workItem from="1478364691940" duration="2121000" />
-      <workItem from="1478367968823" duration="1070000" />
+      <workItem from="1478367968823" duration="1096000" />
     </task>
     <task id="LOCAL-00001" summary="various changes for printing">
       <created>1476018919861</created>
@@ -417,11 +411,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70399000" />
+    <option name="totallyTimeSpent" value="70425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="18" width="1317" height="750" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17691724" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
