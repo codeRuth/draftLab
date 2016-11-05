@@ -1,61 +1,100 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 100
 
-int key[20], n, m;
-int *hashTable, hashIndex;
-int eCount = 0;
 
-void createHashTable() {
-    int i;
-    hashTable = (int*) malloc(m*sizeof(int));
-    if(hashTable == NULL)
-        printf("\nUnable to create the hash table");
+int create(int num) {
+    int key;
+    key = num % 100;
+    return key;
+}
+
+void linear_prob(int a[MAX], int key, int num)
+{
+    int flag, i, count=0;
+    flag=0;
+    if(a[key]== -1)
+    {
+        a[key] = num;
+    }
     else
-        for(i = 0; i < m; i++)
-            hashTable[i] = -1;
-}
-
-void insertIntoHashTable(int key) {
-    hashIndex = key % m;
-    while(hashTable[hashIndex] != -1) {
-        hashIndex = (hashIndex + 1) % m;
+    {
+        printf("\nCollision Detected.\n");
+        i=0;
+        while(i<MAX)
+        {
+            if (a[i]!=-1)
+                count++;
+            i++;
+        }
+        printf("Collision avoided successfully using LINEAR PROBING\n");
+        if(count == MAX)
+        {
+            printf("\n Hash table is full");
+            display(a);
+            exit(1);
+        }
+        for(i=key+1; i<MAX; i++)
+            if(a[i] == -1)
+            {
+                a[i] = num;
+                flag =1;
+                break;
+            }
+//for(i=0;i<key;i++)
+        i=0;
+        while((i<key) && (flag==0))
+        {
+            if(a[i] == -1)
+            {
+                © Vivekananda College of Engg. & Technology, Puttur (D.K)
+                57a[i] = num;
+                flag=1;
+                break;
+            }
+            i++;
+        }
     }
-    hashTable[hashIndex] = key;
-    eCount++;
 }
-
-void displayHashTable() {
-    int i;
-    if(eCount == 0) {
-        printf("\nHash Table is Empty");
-        return;
+void display(int a[MAX])
+{
+    int i,choice;
+    printf("1.Display ALL\n 2.Filtered Display\n");
+    scanf("%d",&choice);
+    if(choice==1)
+    {
+        printf("\n the hash table is\n");
+        for(i=0; i<MAX; i++)
+            printf("\n %d %d ", i, a[i]);
     }
-    printf("\nHash Table contents are:\n\n ");
-    for(i = 0; i < m; i++)
-        printf("\nT[%d] --> %d ", i, hashTable[i]);
+    else
+    {
+        printf("\n the hash table is\n");
+        for(i=0; i<MAX; i++)
+            if(a[i]!=-1)
+            {
+                printf("\n %d %d ", i, a[i]);
+                continue;
+            }
+    }
 }
 
 void main() {
-    int i;
-    printf("\nEnter the number of Employee Records (N) :   ");
-    scanf("%d", &n);
-
-    printf("\nEnter the four digit key values (K) of 'N' Employee Records:\n  ");
-    for(i = 0; i < n; i++)
-        scanf("%d", &key[i]);
-
-    printf("\nEnter the two digit memory locations (m) for hash table:   ");
-    scanf("%d", &m);
-
-    createHashTable();
-
-    printf("\nInserting key values of Employee records into hash table….. ");
-    for(i=0; i<n; i++) {
-        if(eCount == m) {
-            printf("\nHash table is full. Cannot insert the %d record key value", i+1);
-            break;
-        }
-        insertIntoHashTable(key[i]);
+    int a[MAX],num,key,i;
+    int ans=1;
+    printf(" collision handling by linear probing : \n");
+    for (i=0;i<MAX;i++)
+    {
+        a[i] = -1;
     }
-    displayHashTable();
+    do
+    {
+        printf("\n Enter the data");
+        scanf("%4d", &num);
+        key=create(num);
+        linear_prob(a,key,num);
+        printf("\n Do you wish to continue ? (1/0) ");
+        scanf("%d",&ans);
+    }while(ans);
+    display(a);
 }

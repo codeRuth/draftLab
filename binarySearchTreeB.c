@@ -1,11 +1,20 @@
+//Design, Develop and Implement a Program in C for the following operations on
+//Binary Search Tree (BST) of Integers
+//      a. Create a BST of N Integers: 6, 9, 5, 2, 8, 15, 24, 14, 7, 8, 5, 2
+//      b. Traverse the BST in In-Order, Pre-Order and Post-Order
+//      c. Search the BST for a element (KEY) and report the appropriate message
+//      d. Delete an element(ELEM) from BST
+//      e. Exit
+
 #include <stdio.h>
 #include <stdlib.h>
-struct BST
-{
+
+struct BST {
     int data;
     struct BST *left;
     struct BST *right;
 };
+
 typedef struct BST NODE;
 NODE *node;
 
@@ -63,6 +72,9 @@ void postOrder(NODE *node) {
         printf("%d   ", node->data);
     }
 }
+
+
+
 
 NODE* findMin(NODE *node) {
     if(node==NULL) {
@@ -125,13 +137,11 @@ void main() {
                 break;
             case 2:
                 printf("\nEnter the Element to Search: ");
-                scanf("%d", &data);
-                root = searchNode(root, data);
+                scanf("%d", &data); root = searchNode(root, data);
                 break;
             case 3:
                 printf("\nEnter the Element to Delete: ");
-                scanf("%d", &data);
-                root = deleteNode(root, data);
+                scanf("%d", &data); root = deleteNode(root, data);
                 break;
             case 4:
                 printf("\nIn-Order Traversal:   "); inOrder(root);
@@ -141,7 +151,6 @@ void main() {
                 break;
             case 5: exit(0);
             default: printf("Wrong Option.\n");
-                break;
         }
     }
 }
