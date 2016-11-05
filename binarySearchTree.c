@@ -91,15 +91,56 @@ void postOrder(NODE root) {
     }
 }
 
+NODE* findMin(NODE *node) {
+    if(node == NULL) {
+        return NULL;
+    }
+    if(node->left)
+        return findMin(node->left);
+    else
+        return node;
+}
+
+NODE* deleteNode(NODE *node, int data)
+{
+    NODE *temp;
+    if(node == NULL) {
+        printf("\nElement Not Found.");
+    }
+    else if(data < node->data) {
+        node->left = deleteNode(node->left, data);
+    }
+    else if(data > node->data) {
+        node->right = deleteNode(node->right, data);
+    }
+    else {
+        if(node->right && node->left) {
+            temp = findMin(node->right);
+            node -> data = temp->data;
+            node -> right = del(node->right, temp->data);
+        }
+        else {
+            temp = node;
+            if(node->left == NULL)
+                node = node->right;
+            else if(node->right == NULL)
+                node = node->left;
+            free(temp);
+        }
+    }
+    return node;
+}
+
 void main() {
     int ch, key, val, i, n;
-    NODE root = NULL, newNode;
+    NODE root = NULL, newNode, temp;
     while(1) {
         printf("\n---BINARY SEARCH TREE---");
         printf("\n1. Create a BST.");
         printf("\n2. Search.");
         printf("\n3. BST Traversal.");
-        printf("\n4. Exit.");
+        printf("\n4. Delete Item.");
+        printf("\n5. Exit.");
         printf("\nEnter your Choice: ");
         scanf("%d", &ch);
         switch(ch) {
@@ -132,7 +173,12 @@ void main() {
                     printf("\n");
                 }
                 break;
-            case 4: exit(0);
+            case 4: printf("Enter Item to be Deleted.");
+                    scanf("%d", data);
+                    temp = deleteNode(root, data);
+                    printf("%d Deleted.", temp->data);
+                break;
+            case 5:exit(0);
         }
     }
 }

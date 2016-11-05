@@ -9,77 +9,63 @@ struct BST
 typedef struct BST NODE;
 NODE *node;
 
-NODE* createTree(NODE *node, data) {
+NODE* createTree(NODE *node, int data) {
     if (node == NULL) {
         NODE *temp;
-        temp= (NODE*)malloc(sizeof(NODE));
+        temp = (NODE*) malloc(sizeof(NODE));
         temp->data = data;
         temp->left = temp->right = NULL;
         return temp;
     }
-    if (data < (node->data))
-    {
-        CIT,Dept of ISE,Gubbi
-        Page 62Data Structures with C Laboratory - 15CSL38
-        III Semester / B.E.\
-                node->left = createtree(node->left, data);
+    if (data < (node->data)) {
+        node->left = createTree(node->left, data);
     }
-    else if (data > node->data)
-    {
-        node -> right = createtree(node->right, data);
+    else if (data > node->data) {
+        node -> right = createTree(node->right, data);
     }
     return node;
 }
-NODE* search(NODE *node, int data)
-{
+
+NODE* searchNode(NODE *node, int data) {
     if(node == NULL)
-        printf("\nElement not found");
-    else if(data < node->data)
-    {
-        node->left=search(node->left, data);
+        printf("Element not Found\n");
+    else if(data < node->data) {
+        node->left = searchNode(node->left, data);
     }
-    else if(data > node->data)
-    {
-        node->right=search(node->right, data);
+    else if(data > node->data) {
+        node->right = searchNode(node->right, data);
     }
     else
-        printf("\nElement found is: %d", node->data);
+        printf("Element Found : %d\n", node->data);
     return node;
 }
-void inorder(NODE *node)
-{
-    if(node != NULL)
-    {
-        inorder(node->left);
-        printf("%d\t", node->data);
-        inorder(node->right);
+
+void inOrder(NODE *node) {
+    if(node != NULL) {
+        inOrder(node->left);
+        printf("%d   ", node->data);
+        inOrder(node->right);
     }
 }
-void preorder(NODE *node)
-{
-    if(node != NULL)
-    {
-        printf("%d\t", node->data);
-        preorder(node->left);
-        preorder(node->right);
+
+void preOrder(NODE *node) {
+    if(node != NULL) {
+        printf("%d   ", node->data);
+        preOrder(node->left);
+        preOrder(node->right);
     }
 }
-CIT,Dept of ISE,Gubbi
-        Page 63Data Structures with C Laboratory - 15CSL38
-III Semester / B.E.
-void postorder(NODE *node)
-{
-    if(node != NULL)
-    {
-        postorder(node->left);
-        postorder(node->right);
-        printf("%d\t", node->data);
+
+void postOrder(NODE *node) {
+    if(node != NULL) {
+        postOrder(node->left);
+        postOrder(node->right);
+        printf("%d   ", node->data);
     }
 }
-NODE* findMin(NODE *node)
-{
-    if(node==NULL)
-    {
+
+NODE* findMin(NODE *node) {
+    if(node==NULL) {
         return NULL;
     }
     if(node->left)
@@ -87,96 +73,75 @@ NODE* findMin(NODE *node)
     else
         return node;
 }
-NODE* del(NODE *node, int data)
-{
+
+NODE* deleteNode(NODE *node, int data) {
     NODE *temp;
-    if(node == NULL)
-    {
-        printf("\nElement not found");
+    if(node == NULL) {
+        printf("Element not Found.\n");
     }
-    else if(data < node->data)
-    {
-        node->left = del(node->left, data);
+    else if(data < node->data) {
+        node->left = deleteNode(node->left, data);
     }
-    else if(data > node->data)
-    {
-        node->right = del(node->right, data);
+    else if(data > node->data) {
+        node->right = deleteNode(node->right, data);
     }
-    else
-    { /* Now We can delete this node and replace with either minimum element in the right sub tree or maximum element in the left subtree */
-        if(node->right && node->left)
-        {
-/* Here we will replace with minimum element in the right sub tree */
+    else {
+        if(node->right && node->left) {
             temp = findMin(node->right);
             node -> data = temp->data;
-/* As we replaced it with some other node, we have to delete that node */
-            node -> right = del(node->right,temp->data);
-            CIT,Dept of ISE,Gubbi
-            Page 64Data Structures with C Laboratory - 15CSL38
-            III Semester / B.E.
+            node -> right = deleteNode(node->right,temp->data);
         }
-        else
-        {
-/* If there is only one or zero children then we can directly remove it from the tree and connect its parent to its child */
+        else {
             temp = node;
             if(node->left == NULL)
                 node = node->right;
             else if(node->right == NULL)
                 node = node->left;
             free(temp);
-/* temp is longer required */
         }
     }
     return node;
 }
-void main()
-{
-    int data, ch, i, n;
-    NODE *root=NULL;
-    clrscr();
-    while (1)
-    {
-        printf("\n1.Insertion in Binary Search Tree");
-        printf("\n2.Search Element in Binary Search Tree");
-        printf("\n3.Delete Element in Binary Search Tree");
-        printf("\n4.Inorder\n5.Preorder\n6.Postorder\n7.Exit");
-        printf("\nEnter your choice: ");
+
+void main() {
+    int data, ch, i, n, dis;
+    NODE *root = NULL;
+    while (1) {
+        printf("\n1.Create Tree.");
+        printf("\n2.Search Element.");
+        printf("\n3.Delete Element.");
+        printf("\n4.Display.");
+        printf("\n5.Exit.");
+        printf("\nEnter your Choice: ");
         scanf("%d", &ch);
-        switch (ch)
-        {
-            case 1: printf("\nEnter N value: " );
-                scanf("%d", &n);
-                printf("\nEnter the values to create BST like(6,9,5,2,8,15,24,14,7,8,5,2)\n");
-                for(i=0; i<n; i++)
-                {
+        switch (ch) {
+            case 1:
+                printf("\nEnter the Value of 'n': " ); scanf("%d", &n);
+                printf("Enter Node Data: " );
+                for(i = 0; i < n; i++) {
                     scanf("%d", &data);
-                    root=createtree(root, data);
+                    root = createTree(root, data);
                 }
                 break;
-            case 2: printf("\nEnter the element to search: ");
+            case 2:
+                printf("\nEnter the Element to Search: ");
                 scanf("%d", &data);
-                root=search(root, data);
+                root = searchNode(root, data);
                 break;
-            case 3: printf("\nEnter the element to delete: ");
+            case 3:
+                printf("\nEnter the Element to Delete: ");
                 scanf("%d", &data);
-                root=del(root, data);
+                root = deleteNode(root, data);
                 break;
-                CIT,Dept of ISE,Gubbi
-                Page 65Data Structures with C Laboratory - 15CSL38
-                III Semester / B.E.
-            case 4: printf("\nInorder Traversal: \n");
-                inorder(root);
+            case 4:
+                printf("\nIn-Order Traversal:   "); inOrder(root);
+                printf("\nPre-Order Traversal:  "); preOrder(root);
+                printf("\nPost-Order Traversal: "); postOrder(root);
+                printf("\n");
                 break;
-            case 5: printf("\nPreorder Traversal: \n");
-                preorder(root);
-                break;
-            case 6: printf("\nPostorder Traversal: \n");
-                postorder(root);
-                break;
-            case 7: exit(0);
-            default:printf("\nWrong option");
+            case 5: exit(0);
+            default: printf("Wrong Option.\n");
                 break;
         }
     }
-    getch();
 }
