@@ -1,100 +1,113 @@
+// Given a File of N employee records with a set K of Keys(4-digit) which uniquely determine
+// the records in file F. Assume that file F is maintained in memory by a Hash Table(HT) of
+// m memory locations with L as the set of memory addresses (2-digit) of locations in HT. Let
+// the keys in K and addresses in L are Integers. Design and develop a Program in C that uses
+// Hash function H: K → L as H(K)=K mod m (remainder method), and implement hashing
+// technique to map a given key K to the address space L. Resolve the collision (if any) using
+// linear probing
+
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 100
+#define MAX 10
 
+struct Employee {
+    int  SSN;
+    char empName[20];
+    char nDept[10];
+};
+typedef struct Employee EMP;
 
-int create(int num) {
+EMP hashTable[MAX]; int a[MAX];
+
+int createTable(int num) {
     int key;
     key = num % 100;
     return key;
 }
 
-void linear_prob(int a[MAX], int key, int num)
-{
-    int flag, i, count=0;
-    flag=0;
-    if(a[key]== -1)
-    {
-        a[key] = num;
+int getEmp(EMP hashTable[], int key) {
+    printf("Enter Employee Details : \n");
+    printf("ID: "); scanf("%d", &hashTable[key].SSN);
+    printf("Name: "); scanf("%s", hashTable[key].empName);
+    printf("Department: "); scanf("%s", hashTable[key].nDept);
+    return key;
+}
+
+void displayTable() {
+    int i, ch;
+    mark:
+    printf("\n1.Display All\n2.Filtered Display\n3.Exit");
+    printf("\nEnter your Choice: "); scanf("%d", &ch);
+    switch(ch) {
+        case 1:
+            printf("\n\tThe Hash Table \n");
+            printf("\nKey\tSSN\tEmpName\tDepartment");
+            for(i = 0; i < MAX; i++)
+                printf("\n%d\t%d\t%s\t%s", i, hashTable[i].SSN,
+                       hashTable[i].empName, hashTable[i].nDept);
+            printf("\n");
+            goto mark;
+        case 2:
+            printf("\nThe Hash Table :\n");
+            printf("\nKey\tSSN\tEmpName\tDepartment");
+            for(i = 0; i < MAX; i++)
+                if(a[i] != -1) {
+                    printf("\n%d\t%d\t%s\t%s", i, hashTable[i].SSN,
+                           hashTable[i].empName, hashTable[i].nDept);
+                    continue;
+                }
+            printf("\n");
+            goto mark;
+        case 3: exit(0);
+        default: printf("Enter Correct Option"); goto mark;
     }
-    else
-    {
+}
+
+void linearProbe(int key, int num) {
+    int flag, i, count = 0; flag = 0;
+    if(a[key] == -1) {
+        a[key] = getEmp(hashTable, key);
+    }
+    else {
         printf("\nCollision Detected.\n");
-        i=0;
-        while(i<MAX)
-        {
-            if (a[i]!=-1)
+        i = 0;
+        while(i < MAX) {
+            if (a[i] != -1)
                 count++;
             i++;
         }
-        printf("Collision avoided successfully using LINEAR PROBING\n");
-        if(count == MAX)
-        {
-            printf("\n Hash table is full");
-            display(a);
+        printf("Collision Avoided Successfully using LINEAR PROBING\n");
+        if(count == MAX) {
+            printf("\n Hash Table is Full");
+            displayTable(hashTable);
             exit(1);
         }
-        for(i=key+1; i<MAX; i++)
-            if(a[i] == -1)
-            {
-                a[i] = num;
-                flag =1;
+        for(i = key+1; i < MAX; i++)
+            if(a[i] == -1) {
+                a[i] = num; flag = 1;
                 break;
             }
-//for(i=0;i<key;i++)
-        i=0;
-        while((i<key) && (flag==0))
-        {
-            if(a[i] == -1)
-            {
-                © Vivekananda College of Engg. & Technology, Puttur (D.K)
-                57a[i] = num;
-                flag=1;
+        i = 0;
+        while((i < key) && (flag == 0)) {
+            if(a[i] == -1) {
+                a[i] = num; flag=1;
                 break;
-            }
-            i++;
+            } i++;
         }
-    }
-}
-void display(int a[MAX])
-{
-    int i,choice;
-    printf("1.Display ALL\n 2.Filtered Display\n");
-    scanf("%d",&choice);
-    if(choice==1)
-    {
-        printf("\n the hash table is\n");
-        for(i=0; i<MAX; i++)
-            printf("\n %d %d ", i, a[i]);
-    }
-    else
-    {
-        printf("\n the hash table is\n");
-        for(i=0; i<MAX; i++)
-            if(a[i]!=-1)
-            {
-                printf("\n %d %d ", i, a[i]);
-                continue;
-            }
     }
 }
 
 void main() {
-    int a[MAX],num,key,i;
-    int ans=1;
-    printf(" collision handling by linear probing : \n");
-    for (i=0;i<MAX;i++)
-    {
+    int num, key, i;
+    int ans = 1;
+    for (i = 0; i < MAX; i++) {
         a[i] = -1;
     }
-    do
-    {
-        printf("\n Enter the data");
-        scanf("%4d", &num);
-        key=create(num);
-        linear_prob(a,key,num);
-        printf("\n Do you wish to continue ? (1/0) ");
-        scanf("%d",&ans);
-    }while(ans);
-    display(a);
+    do {
+        printf("\nIndex: "); scanf("%d", &num);
+        key = createTable(num); linearProbe(key,num);
+        printf("\nDo you wish to continue? (1/0): "); scanf("%d",&ans);
+    } while(ans);
+    displayTable(hashTable);
 }
+
